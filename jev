@@ -1,0 +1,4 @@
+#!/bin/sh
+set -eu
+SO_ARENA_ROOT=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd -P)
+exec "${JEV_PYTHON:-python3.12}" "$SO_ARENA_ROOT/so_arena.py" "$@"

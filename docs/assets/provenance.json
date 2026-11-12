@@ -1,0 +1,13 @@
+{
+  "manuscript_commit": "4ffa462a35cec03393c73e6038b25c2b8c36e9e9",
+  "manuscript_date": "2026-11-12",
+  "figures": {
+    "so-arena-highlights.png": "Figure/results/s1-teaser.pdf",
+    "evaluation-framework.png": "Figure/results/s1-framework.pdf",
+    "leaderboard-and-reliability.jpg": "Figure/results/s1-deep-dive-paper.pdf + Figure/results/s1-pareto-paper.pdf",
+    "benchmark-composition.png": "Figure/results/s1-composition-rings.pdf + Figure/results/s1-composition-tiers.pdf",
+    "reliability.png": "Figure/results/s1-reliability.pdf",
+    "latency.png": "Figure/results/s1-latency.pdf"
+  },
+  "note": "Rasterized directly from the manuscript figures; paired panels are placed side by side without other edits. No manuscript PDF distributed. Benchmark data unchanged."
+}
