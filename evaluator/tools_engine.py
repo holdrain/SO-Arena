@@ -37,7 +37,6 @@ def medium(task,out,worker=None,control=False):
             return module
         base.import_path=selected_import
         rt,panel,common,values,scorer=base.load_modules()
-        repairs.install_toolsandbox_grounding(values,row['task_id'])
         if 'implicit_variants' in item['manifest']:
             changed=r.load('portable_changed_helpers',root+'run_ts31_changed_batch_27b.py')
             row=changed._native_milestones_from_scenario(row,rt)

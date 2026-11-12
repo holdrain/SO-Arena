@@ -55,5 +55,24 @@ class DistributionTests(unittest.TestCase):
             launcher.validate_files(self.data, {'../outside': 'ignored'})
 
 
+    def test_protected_rows_return_to_their_lines(self):
+        import subprocess
+        full = ['{"id": "a"}\n', '{"id": "b"}\n', '{"id": "c"}\n', '{"id": "d"}\n']
+        stage = self.root / 'stage'
+        stage.mkdir()
+        (stage / 'inputs.jsonl').write_text(full[0] + full[2])
+        z = self.root / 'z'
+        (z / 'sub').mkdir(parents=True)
+        (z / 'inputs.protected.jsonl').write_text(''.join(json.dumps({'line': i, 'row': json.loads(full[i])}) + '\n' for i in (1, 3)))
+        (z / 'sub' / 'whole.jsonl').write_text('kept\n')
+        (z / 'CANARY.txt').write_text('canary\n')
+        subprocess.run(['zip', '-q', '-P', 'pw', str(self.root / 'p.zip'), 'inputs.protected.jsonl', 'sub/whole.jsonl', 'CANARY.txt'],
+                       cwd=z, check=True)
+        launcher.restore_protected(stage, self.root / 'p.zip', 'pw')
+        self.assertEqual((stage / 'inputs.jsonl').read_text(), ''.join(full))
+        self.assertEqual((stage / 'sub' / 'whole.jsonl').read_text(), 'kept\n')
+        self.assertFalse((stage / 'CANARY.txt').exists())
+
+
 if __name__ == '__main__':
     unittest.main()

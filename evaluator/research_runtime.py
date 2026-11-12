@@ -27,7 +27,7 @@ def install():
                 target=args[0]
                 if target.startswith(str(VENDOR)+'/'):stream.write(target+'\n')
                 if (target.startswith(OLD+'/curation/') or target.startswith(OLD+'/outputs/')) and '/site-packages/' not in target:
-                    raise RuntimeError('Forbidden external collaborator data dependency: '+target)
+                    raise RuntimeError('Forbidden external data dependency: '+target)
         sys.addaudithook(audit)
     import json
     original_json_loads=json.loads
