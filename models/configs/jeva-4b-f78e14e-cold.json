@@ -1,0 +1,5 @@
+{
+ "adapter": "jeva",
+ "model": "${SO_ARENA_MODELS}/Jeva-4B-f78e14e",
+ "cache_mode": "cold"
+}

@@ -1,0 +1,14 @@
+{
+ "adapter": "startlux",
+ "model": "${SO_ARENA_MODELS}/StartLux-v1.1-4B-AutoThink",
+ "extra_args": [
+  "--think-mode",
+  "auto",
+  "--gate",
+  "0.6"
+ ],
+ "request_extra": {
+  "think_mode": "auto",
+  "gate": 0.6
+ }
+}

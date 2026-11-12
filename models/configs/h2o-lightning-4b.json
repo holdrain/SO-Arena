@@ -1,0 +1,9 @@
+{
+ "adapter": "h2o",
+ "model": "${SO_ARENA_MODELS}/h2o-lightning-4b",
+ "vllm_args": "--quantization fp8",
+ "taskset_cores": {
+  "6": "96-119,288-311",
+  "7": "120-143,312-335"
+ }
+}

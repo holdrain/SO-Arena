@@ -11,6 +11,8 @@ scores need the model's probabilities, so the response must carry them, in the d
 `q` is the request's question id. Probabilities must be finite, in [0, 1], and (choice) sum to 1 within 1e-3. A model
 with its own null output can also answer the choice files with it: pass --native-null and implement
 `adapter.predict_null(request)`, returning the choice answer plus "null_probability" next to "probabilities".
+With --concurrency 1, the adapter's optional hooks before_request() and after_request() run around every request
+(--no-hooks: never).
 A refusal (`{"type": "refusal"}` as the answer) or any exception is recorded with its status; no item is dropped.
 
 Usage:
@@ -116,6 +118,7 @@ def main():
     ap.add_argument("--out", required=True, type=Path)
     ap.add_argument("--native-null", action="store_true", help="also run choice_a/choice_b with adapter.predict_null")
     ap.add_argument("--concurrency", type=int, default=1, help="requests in flight (default 1)")
+    ap.add_argument("--no-hooks", action="store_true", help="do not call before_request/after_request")
     ap.add_argument("--files", help="comma-separated subset of the files")
     ap.add_argument("--limit", type=int, help="first N rows of each file (integration check)")
     a = ap.parse_args()
@@ -132,9 +135,15 @@ def main():
         files = [x for x in files if x[0] in keep]
     a.out.mkdir(parents=True, exist_ok=True)
     meta = {"model": a.model, "adapter": a.adapter, "concurrency": a.concurrency, "native_null": a.native_null,
+            "hooks": a.concurrency <= 1 and not a.no_hooks,
             "limit": a.limit, "python": platform.python_version(), "start": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
             "files": []}
     fn = {"A": adapter.predict, "noul": adapter.predict, "null": getattr(adapter, "predict_null", None)}
+    # one request at a time: the adapter's optional hooks run around every request, as in the latency runs (e.g. a
+    # server's prefix-cache flush, or graph capture between requests); models/README.md lists where the paper's runs used them
+    hooks = a.concurrency <= 1 and not a.no_hooks
+    before = getattr(adapter, "before_request", None) if hooks else None
+    after = getattr(adapter, "after_request", None) if hooks else None
 
     def call(kind, req):
         try:
@@ -153,7 +162,11 @@ def main():
             for i in range(0, len(rows), step):
                 chunk = rows[i:i + step]
                 if step == 1:
+                    if before:
+                        before()
                     results = [call(kind, chunk[0]["request"])]
+                    if after:
+                        after()
                 else:
                     from concurrent.futures import ThreadPoolExecutor
                     with ThreadPoolExecutor(step) as pool:

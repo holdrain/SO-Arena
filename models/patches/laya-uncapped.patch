@@ -1,0 +1,11 @@
+--- a/laya/common.py
++++ b/laya/common.py
+@@ -246,8 +246,6 @@
+             tok,
+             " " + opts[i].replace(mask_tok, " "),
+             add_special_tokens=False,
+-            truncation=True,
+-            max_length=48,
+         )
+         opt_ids.append([tok.mask_token_id] + opt_tokens)
+     opt_budget = head_max_len - sum(len(o) for o in opt_ids)

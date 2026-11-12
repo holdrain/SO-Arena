@@ -1,0 +1,9 @@
+{
+ "adapter": "decision_api",
+ "provider": "typesafe",
+ "model": "jev-1.14.0",
+ "model_id": "typesafe:jev-1.14.0",
+ "credentials_file": "~/.config/so-arena/decision-api.env",
+ "timeout_seconds": 120,
+ "max_retries": 4
+}

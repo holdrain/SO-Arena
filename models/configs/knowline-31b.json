@@ -1,0 +1,5 @@
+{
+ "adapter": "knowline",
+ "model": "${SO_ARENA_MODELS}/KnowLine-31B-Gen1",
+ "backend": "sglang"
+}

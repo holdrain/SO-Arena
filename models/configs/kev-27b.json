@@ -1,0 +1,8 @@
+{
+ "adapter": "kev",
+ "run": "${SO_ARENA_MODELS}/kev-27b",
+ "env": {
+  "KEV_PREFIX_CACHE": "0",
+  "HF_HUB_OFFLINE": "1"
+ }
+}

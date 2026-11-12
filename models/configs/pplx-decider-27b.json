@@ -1,0 +1,7 @@
+{
+ "adapter": "pplx",
+ "model": "${SO_ARENA_MODELS}/pplx-decider-v1.2",
+ "fast_options": {
+  "fp8": true
+ }
+}

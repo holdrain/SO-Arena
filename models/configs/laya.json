@@ -1,0 +1,7 @@
+{
+ "adapter": "laya",
+ "model": "${SO_ARENA_MODELS}/laya",
+ "max_len": 8192,
+ "head_max_len": 2048,
+ "uncapped_common_sha256": "59d24fe2f9feb902b5c9e122e69abbee0f6d7e899d37609d5a132fb4f98714ca"
+}

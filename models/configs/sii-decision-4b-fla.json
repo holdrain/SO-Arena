@@ -1,0 +1,4 @@
+{
+ "adapter": "sii",
+ "model": "${SO_ARENA_MODELS}/SII-Decision-4B-LoRA"
+}

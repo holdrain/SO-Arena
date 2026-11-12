@@ -1,0 +1,5 @@
+{
+ "adapter": "pplx",
+ "model": "${SO_ARENA_MODELS}/pplx-decider-flash-v1.2",
+ "fast_options": null
+}

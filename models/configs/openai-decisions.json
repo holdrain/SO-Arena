@@ -1,0 +1,9 @@
+{
+ "adapter": "decision_api",
+ "provider": "openai",
+ "model": "gpt-6-luna",
+ "model_id": "openai-decisions:gpt-6-luna",
+ "credentials_file": "~/.config/so-arena/decision-api.env",
+ "timeout_seconds": 120,
+ "max_retries": 4
+}

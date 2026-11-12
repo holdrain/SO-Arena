@@ -1,0 +1,6 @@
+{
+ "adapter": "startlux",
+ "model": "${SO_ARENA_MODELS}/StartLux-v1.1-4B-Instant",
+ "extra_args": [],
+ "request_extra": {}
+}

@@ -118,3 +118,7 @@ settings.
 | GPT-6 Luna | `gpt-6-luna` | as GPT-6 Sol |
 
 `../VERIFY.md` shows that `summarize_latency.py` on the stored timed records reproduces the paper's latencies.
+
+**Adapter bridge.** With `models/bridge.py`, the conversion of the adapter's probability list into the decision
+response happens inside `adapter.predict`, so inside the clock; the paper's harness had no such step. It costs
+microseconds per request.

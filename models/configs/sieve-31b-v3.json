@@ -1,0 +1,4 @@
+{
+ "adapter": "sieve",
+ "model": "${SO_ARENA_MODELS}/Sieve-31B-v3"
+}

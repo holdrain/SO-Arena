@@ -1,0 +1,5 @@
+{
+ "adapter": "clef_sglang",
+ "model": "${SO_ARENA_MODELS}/clef-flash",
+ "served_model": "Cloudflare/clef-flash"
+}

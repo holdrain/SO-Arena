@@ -1,0 +1,14 @@
+{
+ "adapter": "jevany",
+ "checkpoint": "${SO_ARENA_MODELS}/JevAny-Qwen3.5-4B-LoRA",
+ "env": {
+  "JEVANY_BASE_LOAD_PATH": "${SO_ARENA_MODELS}/Qwen3.5-4B",
+  "JEVANY_MERGE_BF16": "1",
+  "JEVANY_ATTN": "sdpa",
+  "JEVANY_COMPILE": "0",
+  "JEVANY_CUDA_GRAPHS": "1",
+  "JEVANY_CUDA_GRAPH_MAX_TOKENS": "2048",
+  "JEVANY_PREFIX_CACHE": "0",
+  "HF_HUB_OFFLINE": "1"
+ }
+}
