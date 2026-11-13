@@ -1,6 +1,15 @@
 {
-  "manuscript_commit": "4ffa462a35cec03393c73e6038b25c2b8c36e9e9",
-  "manuscript_date": "2026-11-12",
+  "source": "arXiv:2611.15777v1, author source (https://arxiv.org/e-print/2611.15777)",
+  "source_figures_sha256": {
+    "Figure/results/s1-teaser.pdf": "ccd8b6a4f2447b7b3878c9c3d0fd6eebbb1bd635d4d3a810623e9960b8f8305d",
+    "Figure/results/s1-framework.pdf": "25d2534f8210c2143e3f136337f03d42a789446e4899ebbbcf12419eb88e0337",
+    "Figure/results/s1-deep-dive-paper.pdf": "d10575bef51d16056aa08040bac6e1db0f1075bbb80ac17226f1ed7c1c354318",
+    "Figure/results/s1-pareto-paper.pdf": "1cef485445da5497e6a8e7630d9091b2baf5938818a9494ab5d3a9dad59aa6d6",
+    "Figure/results/s1-composition-rings.pdf": "09c5109de2aabb545b57c1dd8b5bb73a4e762e6e05dcf4d6824381101ee1a0ee",
+    "Figure/results/s1-composition-tiers.pdf": "0d2400beefa428f6ee0909a233db3c3a6c64f8483e645ba5611c419893bde7c0",
+    "Figure/results/s1-reliability.pdf": "57be0b3cfbd1a58057e46066a03303a58bbb860681e1d0ccf8ece70011569650",
+    "Figure/results/s1-latency.pdf": "1fb6e2ba1b4edbbc710243d66e5c4f2fb9dd94534e7556b1ac13117fc526ab4a"
+  },
   "figures": {
     "so-arena-highlights.png": "Figure/results/s1-teaser.pdf",
     "evaluation-framework.png": "Figure/results/s1-framework.pdf",
@@ -9,5 +18,5 @@
     "reliability.png": "Figure/results/s1-reliability.pdf",
     "latency.png": "Figure/results/s1-latency.pdf"
   },
-  "note": "Rasterized directly from the manuscript figures; paired panels are placed side by side without other edits. No manuscript PDF distributed. Benchmark data unchanged."
+  "note": "Rasterized directly from the published paper's figures; paired panels are placed side by side as in the paper, without other edits. No manuscript PDF distributed. Benchmark data unchanged."
 }
